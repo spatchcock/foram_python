@@ -3,14 +3,15 @@ description:      How to model the formation of foraminiferal assemblages in Pyt
 disqus_shortname: forampython
 reading_time:     true
 words_per_minute: 200
-logo:             
+logo:     
+root_path: "/foram_python/"        
 
 # Your site's domain goes here (eg: //mmistakes.github.io, http://mademistakes.com, etc)
 # When testing locally leave blank or use http://localhost:4000
 # url: http://aronbordin.com/neo-hpstr-jekyll-theme
 
 menu:
-  - title: 'home'
+  - title: 'muh'
     url: '/'
 
 # Owner/author information
