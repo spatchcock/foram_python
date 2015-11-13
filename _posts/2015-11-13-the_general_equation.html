@@ -1,0 +1,101 @@
+---
+layout: post
+title: "The General Foraminiferal Equation"
+description: "Some maths and code to understand how growth and deficits affect government debt."
+tags: [python, code]
+date: 2015-07-14
+---
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The general equation for foraminiferal test accumulation is:</p>
+<p><span class="math">\[\frac {\partial C}{\partial t} = D(x)\frac {\partial ^2C}{\partial x^2} - w\frac {\partial C}{\partial x} + a(x)R(x) - \lambda(x) C \hspace{1cm} (1)\]</span></p>
+<p>where <span class="math">\(C\)</span> is the concentration of <em>dead</em> tests per unit volume of sediment, <span class="math">\(t\)</span> is time, <span class="math">\(x\)</span> is depth into the sediment, <span class="math">\(D\)</span> is the rate of biodiffusion (mixing, e.g. bioturbation), <span class="math">\(w\)</span> the rate of sedimentation (burial), <span class="math">\(a\)</span> is the concentration of living individuals per unit volume of sediment, <span class="math">\(R\)</span> the rate of population turnover (per unit time) and <span class="math">\(\lambda\)</span> the rate of taphonomic decay (per unit time).</p>
+<p>The left hand side of the equation is a <em>partial derivative</em>. It simply describes a <em>rate</em>, specifically the rate at which the concentration of dead foraminiferal tests (<span class="math">\(C\)</span>) changes through time (<span class="math">\(t\)</span>). So the entire equation is describing how fast (and in what direction) the concentration of dead tests are changing. It follows that if we know the number of dead tests that exist at one point in time (which may be zero tests), we can use the equation to predict the number of tests at some later time.</p>
+<p>What about the right-hand side? Well, if the left-hand side describes a change in <em>tests per volume of sediment per time</em>, then the right-hand side must describe the same units. And since the right-hand side is comprised of four separate terms, we know that each of them individually must represent a change in <em>tests per volume of sediment per time</em> (because only quantities with identical units can be added to or subtracted from one another). So we can consider the right-hand side as the sum of separate processes each of which result in a particular change to the concentration of dead tests.</p>
+<p>We could write,</p>
+<p><span class="math">\[\frac {\partial C}{\partial t} = \left(\frac {\partial C}{\partial t}\right)_{mixing} + \left(\frac {\partial C}{\partial t}\right)_{burial} + \left(\frac {\partial C}{\partial t}\right)_{production} + \left(\frac {\partial C}{\partial t}\right)_{loss}\]</span></p>
+<p>That's not quite so cryptic is it? The rate at which the concentration of dead tests changes is simply the rates due to test production, taphonomic loss, burial and mixing all added together. And the individual rates are described by the terms in the original equation.</p>
+<p><span class="math">\[
+\begin{array}{lcl}
+\left(\frac {\partial C}{\partial t}\right)_{mixing} &amp;=&amp; \space D(x)\frac {\partial ^2C}{\partial x^2} \\
+\left(\frac {\partial C}{\partial t}\right)_{burial} &amp;=&amp;- w\frac {\partial C}{\partial x}\\
+\left(\frac {\partial C}{\partial t}\right)_{production} &amp;=&amp; \space a(x)R(x)\\
+\left(\frac {\partial C}{\partial t}\right)_{loss} &amp;=&amp; - \lambda(x) C\\
+\end{array}
+\]</span></p>
+<p>We can more or less just mix and match the terms above depending on what precisely we want to model. We'll take a look at each individual term in more detail and model a variety of scenarios in subsequent posts.</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-most-general-equation">The <em>most</em> general equation<a class="anchor-link" href="#The-most-general-equation">&#182;</a></h3>
+</div>
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>One other thing worth mentioning: there are two <em>independent</em> variables in the equation above, time (<span class="math">\(t\)</span>) and depth (<span class="math">\(x\)</span>). This means that any evaluation of dead test concentration (<span class="math">\(C\)</span>) is associated with a specific time and a specific depth which allows us to model the dynamics of test accumulation through time and with depth in to the sediment. We can, for example, show how tests accumulate during burial, and we can incorporate variations through time and with depth in things like living populations (e.g. seasonality, infauna) and the rates of population turnover and taphonomic decay.</p>
+<p>But the processes described in the model (production, loss, burial, mixing) might vary in other dimensions. For example, populations of foraminifera may vary across space in response to some environmental gradient (e.g. salinity, organics, oxygen). Or perhaps the intensities of bioturbation or taphonomic decay might vary across space, for example if we move from a salt marsh onto a mudflat environment. If we want model such variability then we need to include 2 or 3 spatial dimensions in our model.</p>
+<p>So, the equation presented at the start can be further generalised.</p>
+<p><span class="math">\[\frac {\partial C(x,y,z,t)}{\partial t} = D(x,y,z,t)\frac {\partial ^2C(x,y,z,t)}{\partial z^2} - w(x,y,t)\frac {\partial C(x,y,z,t)}{\partial z} + a(x,y,z,t)R(x,y,z,t) - \lambda(x,y,z,t) C(x,y,z,t)\]</span></p>
+<p>The difference is all those terms in parentheses. In this formulation, <span class="math">\(x\)</span>, <span class="math">\(y\)</span> and <span class="math">\(z\)</span> are the 3 spatial dimensions, while <span class="math">\(t\)</span> is still time. So all this says is that each of the variables might vary in each of these dimensions. In most cases, we will not need to explcitly resolve all of these dimensions, and instead will be content with a 1-dimensional model in space, with or without the time dimension. We refer to equation (1) as <em>The General Equation</em> for most pracical purposes, but with the caveat that it can be generalised further.</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id=""><a class="anchor-link" href="#">&#182;</a></h3>
+</div>
+
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Further-reading">Further reading<a class="anchor-link" href="#Further-reading">&#182;</a></h3>
+</div>
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Berkeley, A., Perry, C.T., Smithers, S.G., Hoon, S., (2014), Towards a formal description of foraminiferal assemblage formation in shallow-water environments: Qualitative and quantitative concepts, <em>Marine Micropaleontology</em>, 112, Pages 27–38.</p>
+</div>
