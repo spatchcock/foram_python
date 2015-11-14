@@ -4,20 +4,20 @@ disqus_shortname: forampython
 reading_time:     true
 words_per_minute: 200
 logo:     
-root_path: "/foram_python/"        
+url: "http://spatchcock.github.io/foram_python/"        
 
 # Your site's domain goes here (eg: //mmistakes.github.io, http://mademistakes.com, etc)
 # When testing locally leave blank or use http://localhost:4000
 # url: http://aronbordin.com/neo-hpstr-jekyll-theme
 
 menu:
-  - title: 'muh'
+  - title: 'm|u|h'
     url: '/'
 
 # Owner/author information
 owner:
   name:           Andrew Berkeley
-  site:           http://spatchcock.github.io/foram_python
+  site:           http://spatchcock.github.io
   avatar:         images/avatar.jpg
   bio:            "Your bio goes here."
   email:          andrew.berkeley.is@googlemail.com
