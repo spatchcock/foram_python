@@ -1,4 +1,4 @@
-title:            Foram modelling
+title:            Modelling foraminiferal assemblage formation in Python
 description:      How to model the formation of foraminiferal assemblages in Python.
 disqus_shortname: forampython
 reading_time:     true
@@ -12,14 +12,14 @@ url: "http://spatchcock.github.io/foram_python/"
 
 menu:
   - title: 'm|u|h'
-    url: '/'
+    url: 'http://spatchcock.github.io/'
 
 # Owner/author information
 owner:
   name:           Andrew Berkeley
   site:           http://spatchcock.github.io
   avatar:         images/avatar.jpg
-  bio:            "Your bio goes here."
+  bio:            
   email:          andrew.berkeley.is@googlemail.com
   # Social networking links used in footer. Update and remove as you like.
   twitter: spatchcockable
