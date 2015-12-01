@@ -1,0 +1,22 @@
+- title: foram_python
+  url: "/"
+  side: left
+
+- title: "Table of contents"
+  url: "contents"
+  side: left
+  dropdown:
+  - title: "Introduction"
+    url: "/introduction/"
+
+- title: "Search"
+  url: "/search/"
+  side: right
+
+- title: "m|u|h"
+  url: "http://spatchcock.github.io"
+  side: right
+
+- title: "Contact"
+  url: "/contact/"
+  side: right

@@ -1,32 +1,23 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>{{ page.title }}</title>
-		<!-- link to main stylesheet -->
-		<link rel="stylesheet" type="text/css" href="/css/main.css">
-		<link rel="stylesheet" type="text/css" href="/css/ipnb.css">
-		<script type="text/x-mathjax-config"> MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}}); </script>
-		<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-	</head>
-	<body>
-		<nav>
-    		<ul>
-        		<li><a href="/">Home</a></li>
-	        	<li><a href="/about">About</a></li>
-        		<li><a href="/cv">CV</a></li>
-        		<li><a href="/blog">Blog</a></li>
-    		</ul>
-		</nav>
-		<div class="container">
-    		
-		{{ content }}
+---
+layout: compress
+---
+<!doctype html>
+<html class="no-js" lang="{% if site.language == nil %}en{% else %}{{ site.language }}{% endif %}">
+<head>
+	{% include _head.html %}
+</head>
+<body id="top-of-page" class="{{ page.format }}">
+	{% unless page.skip_boilerplate %}
+	{% include _navigation.html %}
+	{% endunless %}
 
-		</div><!-- /.container -->
-		<footer>
-    		<ul>
-        		<li><a href="mailto:andrew.berkeley.is@googlemail.com">email</a></li>
-        		<li><a href="https://github.com/spatchcock">github.com/spatchcock</a></li>
-			</ul>
-		</footer>
-	</body>
+	{% include _masthead.html %}
+	{{ content }}
+
+	{% unless page.skip_boilerplate %}
+	{% include _footer.html %}
+	{% endunless %}
+
+	{% include _footer_scripts.html %}
+</body>
 </html>
